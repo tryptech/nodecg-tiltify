@@ -1,5 +1,5 @@
 {
-  "name": "nodecg-tiltify-ts",
+  "name": "nodecg-tiltify",
   "version": "0.0.0",
   "description": "",
   "homepage": "",
@@ -9,8 +9,6 @@
     "url": ""
   },
   "files": [
-    "dashboard",
-    "graphics",
     "extension.js",
     "extension"
   ],
