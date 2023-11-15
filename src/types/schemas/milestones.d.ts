@@ -5,11 +5,19 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface Configschema {
-	tiltify_client_id?: string;
-	tiltify_client_secret?: string;
-	tiltify_webhook_id?: string;
-	tiltify_webhook_secret?: string;
-	tiltify_campaign_id?: string;
+export type Milestones = {
+	active: boolean;
+	amount: Amount;
+	id: string;
+	inserted_at?: string;
+	legacy_id?: number;
+	name: string;
+	updated_at?: string;
+	[k: string]: unknown;
+}[];
+
+export interface Amount {
+	currency: string;
+	value: string;
 	[k: string]: unknown;
 }

@@ -5,11 +5,7 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface Configschema {
-	tiltify_client_id?: string;
-	tiltify_client_secret?: string;
-	tiltify_webhook_id?: string;
-	tiltify_webhook_secret?: string;
-	tiltify_campaign_id?: string;
-	[k: string]: unknown;
-}
+/**
+ * The total for the campaign
+ */
+export type Total = number;
