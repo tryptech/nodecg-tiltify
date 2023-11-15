@@ -4,6 +4,8 @@ export * from './configschema';
 // @ts-ignore
 export * from './alldonations';
 // @ts-ignore
+export * from './campaign';
+// @ts-ignore
 export * from './donationpolls';
 // @ts-ignore
 export * from './donations';

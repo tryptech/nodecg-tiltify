@@ -5,18 +5,14 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type Schedule =
-	| []
-	| [
-			{
-				description: string | null;
-				ends_at: string | null;
-				id: string;
-				inserted_at?: string;
-				legacy_id?: number;
-				name: string;
-				starts_at: string;
-				updated_at?: string;
-				[k: string]: unknown;
-			}
-	  ];
+export type Schedule = {
+	description: string | null;
+	ends_at: string | null;
+	id: string;
+	inserted_at?: string;
+	legacy_id?: number;
+	name: string;
+	starts_at: string;
+	updated_at?: string;
+	[k: string]: unknown;
+}[];

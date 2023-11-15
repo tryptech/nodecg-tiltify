@@ -6,7 +6,6 @@
  */
 
 export type Donors = {
-	$comment?: 'Type of heat is currently unknown, so omitting for now';
 	amount: Amount;
 	avatar?: Image;
 	id: string;

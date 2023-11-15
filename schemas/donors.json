@@ -5,7 +5,6 @@
     "items": {
         "type": "object",
         "properties": {
-            "$comment": "Type of heat is currently unknown, so omitting for now",
             "amount": {
                 "$ref": "common/amount.json"
             },

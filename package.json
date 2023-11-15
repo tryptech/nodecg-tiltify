@@ -41,7 +41,8 @@
     "generate-schema-types": "trash src/types/schemas && nodecg schema-types"
   },
   "dependencies": {
-    "ts-node": "*"
+    "ts-node": "*",
+    "@ericthelemur/tiltify-api-client": "^2.1.0"
   },
   "devDependencies": {
     "typescript": "^5.1.3",

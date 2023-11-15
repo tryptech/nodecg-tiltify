@@ -5,15 +5,16 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type Alldonations = {
-	$comment?: "tiltify-control's fields";
-	amount?: Amount;
-	id?: string;
-	campaign_id?: string;
-	completed_at?: string;
+export type Alldonations = Donation[];
+
+export interface Donation {
+	amount: Amount;
+	id: string;
+	campaign_id: string;
+	completed_at: string;
 	created_at?: string;
-	donor_comment?: string;
-	donor_name?: string;
+	donor_comment: string;
+	donor_name: string;
 	fundraising_event_id?: string | null;
 	legacy_id?: number;
 	poll_id?: string | null;
@@ -31,8 +32,7 @@ export type Alldonations = {
 	 */
 	modStatus?: boolean;
 	[k: string]: unknown;
-}[];
-
+}
 export interface Amount {
 	currency: string;
 	value: string;

@@ -25,6 +25,12 @@ export interface Donation {
 	team_event_id?: string | null;
 	shown?: boolean;
 	read?: boolean;
+	timeToApprove?: number;
+	amountDisplay?: number;
+	/**
+	 * true = approved, false = censored or undefined = undecided
+	 */
+	modStatus?: boolean;
 	[k: string]: unknown;
 }
 export interface Amount {
