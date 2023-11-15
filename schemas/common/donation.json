@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "properties": {
+    "amount": {
+      "type": "object",
+      "$ref": "amount.json"
+    },
+    "id": {
+      "$ref": "uuid.json"
+    },
+    "campaign_id": {
+      "$ref": "uuid.json"
+    },
+    "completed_at": {
+      "$ref": "timestamp.json"
+    },
+    "created_at": {
+      "$ref": "timestamp.json"
+    },
+    "donor_comment": {
+      "type": "string"
+    },
+    "donor_name": {
+      "type": "string"
+    },
+    "fundraising_event_id": {
+      "$ref": "uuid-nullable.json"
+    },
+    "legacy_id": {
+      "type": "integer"
+    },
+    "poll_id": {
+      "$ref": "uuid-nullable.json"
+    },
+    "poll_option_id": {
+      "$ref": "uuid-nullable.json"
+    },
+    "reward_id": {
+      "$ref": "uuid-nullable.json"
+    },
+    "sustained": {
+      "type": "boolean"
+    },
+    "target_id": {
+      "$ref": "uuid-nullable.json"
+    },
+    "team_event_id": {
+      "$ref": "uuid-nullable.json"
+    },
+    "shown": {
+      "type": "boolean"
+    },
+    "read": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "amount",
+    "campaign_id",
+    "completed_at",
+    "donor_comment",
+    "donor_name",
+    "id"
+  ]
+}
