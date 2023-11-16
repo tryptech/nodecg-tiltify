@@ -47,25 +47,6 @@
     },
     "team_event_id": {
       "$ref": "uuid-nullable.json"
-    },
-    "shown": {
-      "type": "boolean"
-    },
-    "read": {
-      "type": "boolean"
-    },
-    "timeToApprove": {
-      "type": "integer"
-    },
-    "amountDisplay": {
-      "type": "number"
-    },
-    "modStatus": {
-      "description": "true = approved, false = censored or null = undecided",
-      "type": [
-        "boolean",
-        "null"
-      ]
     }
   },
   "required": [
@@ -74,9 +55,6 @@
     "completed_at",
     "donor_comment",
     "donor_name",
-    "id",
-    "read",
-    "shown",
-    "modStatus"
+    "id"
   ]
 }

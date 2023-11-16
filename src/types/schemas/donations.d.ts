@@ -23,14 +23,14 @@ export interface Donation {
 	sustained?: boolean;
 	target_id?: string | null;
 	team_event_id?: string | null;
-	shown?: boolean;
-	read?: boolean;
+	shown: boolean;
+	read: boolean;
 	timeToApprove?: number;
 	amountDisplay?: number;
 	/**
-	 * true = approved, false = censored or undefined = undecided
+	 * true = approved, false = censored or null = undecided
 	 */
-	modStatus?: boolean;
+	modStatus: boolean | null;
 	[k: string]: unknown;
 }
 export interface Amount {

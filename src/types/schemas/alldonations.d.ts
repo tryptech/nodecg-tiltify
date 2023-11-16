@@ -5,9 +5,9 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type Alldonations = Donation[];
+export type Alldonations = Basedono[];
 
-export interface Donation {
+export interface Basedono {
 	amount: Amount;
 	id: string;
 	campaign_id: string;
@@ -23,14 +23,6 @@ export interface Donation {
 	sustained?: boolean;
 	target_id?: string | null;
 	team_event_id?: string | null;
-	shown?: boolean;
-	read?: boolean;
-	timeToApprove?: number;
-	amountDisplay?: number;
-	/**
-	 * true = approved, false = censored or undefined = undecided
-	 */
-	modStatus?: boolean;
 	[k: string]: unknown;
 }
 export interface Amount {
