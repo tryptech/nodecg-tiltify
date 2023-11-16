@@ -1,5 +1,6 @@
 import type NodeCG from '@nodecg/types';
 import type { Configschema } from '../../types/schemas';
+import * as mod from "./mod";
 
 let nodecg: NodeCG.ServerAPI<Configschema>;
 
