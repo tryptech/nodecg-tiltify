@@ -1,7 +1,8 @@
 import type NodeCG from '@nodecg/types';
-import type { Donation, Donations, Configschema, Alldonations, Total, Donationpolls, Schedule, Targets, Rewards, Milestones, Donors, Campaign } from '../types/schemas';
-import { APPROVED, getNodeCG, ModStatus, UNDECIDED } from './utils';
-import * as rep from "./utils/replicants";
+import type { Donation } from '../types/schemas';
+import { getNodeCG } from './utils';
+import { ModStatus } from './utils/mod';
+import * as rep from './utils/replicants';
 
 const nodecg = getNodeCG();
 
@@ -22,6 +23,7 @@ nodecg.listenFor("clear-donations", (value, ack) => {
 nodecg.listenFor("approve-all-donations", (value, ack) => {
     setAll("modStatus", value, ack);
 });
+
 
 function searchAndSet<T>(id: string, prop: string, value: T, ack: NodeCG.Acknowledgement | undefined) {
     nodecg.log.info("Mark", prop, id, value);
