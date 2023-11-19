@@ -32,9 +32,10 @@ module.exports = function (nodecg: NodeCG.ServerAPI<Configschema>) {
 	// Store nodecg for retrieval elsewhere
 	storeNodeCG(nodecg);
 	// Then load replicants
-	const replicants = require("./utils/replicants");
+	require("./utils/replicants");
 
 	// Then load everything else
-	const tiltifyHandlers = require("./tiltifyHandlers");
-	const messages = require("./messages");
+	require("./tiltifyHandlers");
+	require("./messages");
+	require("./utils/currency");
 };

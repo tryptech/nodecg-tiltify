@@ -8,6 +8,7 @@ import * as rep from "./utils/replicants";
 import { getNodeCG } from './utils';
 import { WEBHOOK_MODE } from '.';
 import { EventEmitter } from 'node:stream';
+import { convertValue } from './utils/currency';
 
 
 const nodecg = getNodeCG();
@@ -24,6 +25,7 @@ function pushUniqueDonation(donation: Donation) {
         donation.read = false;
         donation.shown = false;
         donation.modStatus = null;
+        convertValue(donation);
         tiltifyEmitter.emit("new-donation", donation);
         rep.donations.value.push(donation);
     }
@@ -31,9 +33,9 @@ function pushUniqueDonation(donation: Donation) {
 
 function updateTotal(campaign: Campaign) {
     // Less than check in case webhooks are sent out-of-order. Only update the total if it's higher!
-    if (rep.campaignTotal.value < parseFloat(campaign.amount_raised.value)
+    if (rep.campaignTotal.value < Number(campaign.amount_raised.value)
     ) {
-        rep.campaignTotal.value = parseFloat(campaign.amount_raised.value);
+        rep.campaignTotal.value = Number(campaign.amount_raised.value);
     }
 }
 

@@ -30,7 +30,7 @@ export type Rewards = {
 
 export interface Amount {
 	currency: string;
-	value: string;
+	value: string | number;
 	[k: string]: unknown;
 }
 export interface Image {

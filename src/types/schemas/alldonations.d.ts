@@ -27,6 +27,6 @@ export interface Basedono {
 }
 export interface Amount {
 	currency: string;
-	value: string;
+	value: string | number;
 	[k: string]: unknown;
 }

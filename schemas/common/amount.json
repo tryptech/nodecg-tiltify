@@ -7,8 +7,15 @@
             "pattern": "[A-Z]{3}"
         },
         "value": {
-            "type": "string",
-            "pattern": "[0-9]+(\\.[0-9]+)?"
+            "anyOf": [
+                {
+                    "type": "string",
+                    "pattern": "[0-9]+(\\.[0-9]+)?"
+                },
+                {
+                    "type": "number"
+                }
+            ]
         }
     },
     "required": [

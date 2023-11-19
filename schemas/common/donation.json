@@ -3,7 +3,6 @@
   "type": "object",
   "properties": {
     "amount": {
-      "type": "object",
       "$ref": "amount.json"
     },
     "id": {
@@ -57,8 +56,8 @@
     "timeToApprove": {
       "type": "integer"
     },
-    "amountDisplay": {
-      "type": "number"
+    "displayAmount": {
+      "$ref": "amount.json"
     },
     "modStatus": {
       "description": "true = approved, false = censored or null = undecided",

@@ -21,6 +21,15 @@
         "tiltify_campaign_id": {
             "type": "string",
             "default": ""
+        },
+        "display_currency": {
+            "type": "string",
+            "default": "GBP"
+        },
+        "freecurrencyapi_key": {
+            "type": "string",
+            "description": "Key for currency API, uses hardcoded values as a fallback",
+            "default": ""
         }
     }
 }

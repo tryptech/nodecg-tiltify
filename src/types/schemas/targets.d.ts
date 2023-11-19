@@ -20,6 +20,6 @@ export type Targets = {
 
 export interface Amount {
 	currency: string;
-	value: string;
+	value: string | number;
 	[k: string]: unknown;
 }

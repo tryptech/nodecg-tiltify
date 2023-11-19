@@ -18,6 +18,6 @@ export type Milestones = {
 
 export interface Amount {
 	currency: string;
-	value: string;
+	value: string | number;
 	[k: string]: unknown;
 }

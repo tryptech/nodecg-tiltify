@@ -27,6 +27,6 @@ export type Donationpolls = {
 
 export interface Amount {
 	currency: string;
-	value: string;
+	value: string | number;
 	[k: string]: unknown;
 }
