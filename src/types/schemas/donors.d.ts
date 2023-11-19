@@ -5,15 +5,16 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type Donors = {
+export type Donors = Donor[];
+
+export interface Donor {
 	amount: Amount;
 	avatar?: Image;
 	id: string;
 	name: string;
 	url: string;
 	[k: string]: unknown;
-}[];
-
+}
 export interface Amount {
 	currency: string;
 	value: string;

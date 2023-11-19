@@ -3,29 +3,6 @@
     "type": "array",
     "default": [],
     "items": {
-        "type": "object",
-        "properties": {
-            "amount": {
-                "$ref": "common/amount.json"
-            },
-            "avatar": {
-                "$ref": "common/image.json"
-            },
-            "id": {
-                "$ref": "common/uuid.json"
-            },
-            "name": {
-                "type": "string"
-            },
-            "url": {
-                "type": "string"
-            }
-        },
-        "required": [
-            "amount",
-            "id",
-            "name",
-            "url"
-        ]
+        "$ref": "common/donor.json"
     }
 }
