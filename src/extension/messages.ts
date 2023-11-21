@@ -1,7 +1,7 @@
 import type NodeCG from '@nodecg/types';
 import type { Donation } from '../types/schemas';
 import { getNodeCG } from './utils';
-import { ModStatus, UNDECIDED } from './utils/mod';
+import { APPROVED, CENSORED, ModStatus, UNDECIDED } from './utils/mod';
 import * as rep from './utils/replicants';
 
 const nodecg = getNodeCG();
@@ -29,8 +29,8 @@ function searchAndSet<T>(id: string, prop: string, value: T, ack: NodeCG.Acknowl
     nodecg.log.info("Mark", prop, id, value);
     var elementIndex = rep.donations.value.findIndex((d: Donation) => d.id === id);
     if (elementIndex !== -1) {
-        nodecg.log.info("Found", elementIndex, rep.donations.value[elementIndex])
-        rep.donations.value[elementIndex][prop] = value;
+        const elem = rep.donations.value[elementIndex];
+        if (elem[prop] != value) elem[prop] = value;
 
         if (ack && !ack.handled) {
             ack(null, null);
@@ -47,7 +47,7 @@ function searchAndSet<T>(id: string, prop: string, value: T, ack: NodeCG.Acknowl
 
 nodecg.listenFor("set-donation-read", ([dono, readVal], ack) => {
     const d = searchAndSet(dono.id, "read", readVal, ack);
-    if (d && readVal && d.modStatus === UNDECIDED) d.modStatus = true;
+    if (d && readVal && d.modStatus === UNDECIDED) d.modStatus = APPROVED;
 });
 
 nodecg.listenFor("set-donation-shown", ([dono, shownVal], ack) => {
@@ -55,5 +55,7 @@ nodecg.listenFor("set-donation-shown", ([dono, shownVal], ack) => {
 });
 
 nodecg.listenFor("set-donation-modstatus", ([dono, statusVal], ack) => {
-    searchAndSet(dono.id, "modStatus", statusVal, ack);
+    const d = searchAndSet(dono.id, "modStatus", statusVal, ack);
+    if (d && !d.shown && statusVal === APPROVED) nodecg.sendMessage("show-dono", dono);
+    if (d && d.shown && statusVal !== APPROVED) nodecg.sendMessage("revoke-dono", dono);
 });
