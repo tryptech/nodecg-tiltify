@@ -3,6 +3,6 @@
   "type": "array",
   "default": [],
   "items": {
-    "$ref": "components/reward.json"
+    "$ref": "components/poll.json"
   }
 }

@@ -3,13 +3,13 @@
     "type": "object",
     "properties": {
         "amount": {
-            "$ref": "amount.json"
+            "$ref": "../common/amount.json"
         },
         "avatar": {
-            "$ref": "image.json"
+            "$ref": "../common/image.json"
         },
         "id": {
-            "$ref": "uuid.json"
+            "$ref": "../common/uuid.json"
         },
         "name": {
             "type": "string"

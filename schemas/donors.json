@@ -3,6 +3,6 @@
     "type": "array",
     "default": [],
     "items": {
-        "$ref": "common/donor.json"
+        "$ref": "components/donor.json"
     }
 }

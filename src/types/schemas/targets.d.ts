@@ -5,7 +5,9 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type Targets = {
+export type Targets = Target[];
+
+export interface Target {
 	active: boolean;
 	amount: Amount;
 	amount_raised: Amount;
@@ -16,8 +18,7 @@ export type Targets = {
 	name: string;
 	updated_at?: string;
 	[k: string]: unknown;
-}[];
-
+}
 export interface Amount {
 	currency: string;
 	value: string | number;

@@ -6,13 +6,13 @@ export * from './alldonations';
 // @ts-ignore
 export * from './campaign';
 // @ts-ignore
-export * from './donationpolls';
-// @ts-ignore
 export * from './donations';
 // @ts-ignore
 export * from './donors';
 // @ts-ignore
 export * from './milestones';
+// @ts-ignore
+export * from './polls';
 // @ts-ignore
 export * from './rewards';
 // @ts-ignore

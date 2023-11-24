@@ -5,7 +5,9 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type Milestones = {
+export type Milestones = Milestone[];
+
+export interface Milestone {
 	active: boolean;
 	amount: Amount;
 	id: string;
@@ -14,8 +16,7 @@ export type Milestones = {
 	name: string;
 	updated_at?: string;
 	[k: string]: unknown;
-}[];
-
+}
 export interface Amount {
 	currency: string;
 	value: string | number;

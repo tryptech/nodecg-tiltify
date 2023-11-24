@@ -5,7 +5,9 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type Rewards = {
+export type Rewards = Reward[];
+
+export interface Reward {
 	/**
 	 * Tiltify's API filters rewards so only active ones are returned
 	 */
@@ -26,8 +28,7 @@ export type Rewards = {
 	starts_at?: string | null;
 	updated_at?: string;
 	[k: string]: unknown;
-}[];
-
+}
 export interface Amount {
 	currency: string;
 	value: string | number;

@@ -5,7 +5,9 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type Schedule = {
+export type Schedule = Timeslot[];
+
+export interface Timeslot {
 	description: string | null;
 	ends_at: string | null;
 	id: string;
@@ -15,4 +17,4 @@ export type Schedule = {
 	starts_at: string;
 	updated_at?: string;
 	[k: string]: unknown;
-}[];
+}

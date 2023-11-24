@@ -3,6 +3,6 @@
   "type": "array",
   "default": [],
   "items": {
-    "$ref": "common/basedono.json"
+    "$ref": "components/basedono.json"
   }
 }

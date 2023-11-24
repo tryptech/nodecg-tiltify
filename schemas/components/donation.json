@@ -3,19 +3,19 @@
   "type": "object",
   "properties": {
     "amount": {
-      "$ref": "amount.json"
+      "$ref": "../common/amount.json"
     },
     "id": {
-      "$ref": "uuid.json"
+      "$ref": "../common/uuid.json"
     },
     "campaign_id": {
-      "$ref": "uuid.json"
+      "$ref": "../common/uuid.json"
     },
     "completed_at": {
-      "$ref": "timestamp.json"
+      "$ref": "../common/timestamp.json"
     },
     "created_at": {
-      "$ref": "timestamp.json"
+      "$ref": "../common/timestamp.json"
     },
     "donor_comment": {
       "type": "string"
@@ -24,28 +24,45 @@
       "type": "string"
     },
     "fundraising_event_id": {
-      "$ref": "uuid-nullable.json"
+      "$ref": "../common/uuid-nullable.json"
     },
     "legacy_id": {
       "type": "integer"
     },
     "poll_id": {
-      "$ref": "uuid-nullable.json"
+      "$ref": "../common/uuid-nullable.json"
     },
     "poll_option_id": {
-      "$ref": "uuid-nullable.json"
+      "$ref": "../common/uuid-nullable.json"
+    },
+    "reward_claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "../common/uuid.json"
+          },
+          "quantity": {
+            "type": "integer"
+          },
+          "reward_id": {
+            "$ref": "../common/uuid.json"
+          }
+        }
+      }
     },
     "reward_id": {
-      "$ref": "uuid-nullable.json"
+      "$ref": "../common/uuid-nullable.json"
     },
     "sustained": {
       "type": "boolean"
     },
     "target_id": {
-      "$ref": "uuid-nullable.json"
+      "$ref": "../common/uuid-nullable.json"
     },
     "team_event_id": {
-      "$ref": "uuid-nullable.json"
+      "$ref": "../common/uuid-nullable.json"
     },
     "shown": {
       "type": "boolean"
@@ -57,7 +74,7 @@
       "type": "integer"
     },
     "displayAmount": {
-      "$ref": "amount.json"
+      "$ref": "../common/amount.json"
     },
     "modStatus": {
       "description": "true = approved, false = censored or null = undecided",

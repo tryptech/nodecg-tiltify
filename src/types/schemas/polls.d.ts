@@ -5,7 +5,9 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type Donationpolls = {
+export type Polls = Poll[];
+
+export interface Poll {
 	active: boolean;
 	amount_raised: Amount;
 	id: string;
@@ -23,8 +25,7 @@ export type Donationpolls = {
 	}[];
 	updated_at?: string;
 	[k: string]: unknown;
-}[];
-
+}
 export interface Amount {
 	currency: string;
 	value: string | number;
