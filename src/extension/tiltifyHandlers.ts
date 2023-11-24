@@ -1,5 +1,5 @@
 import type NodeCG from '@nodecg/types';
-import type { Donation, Donations, Configschema, Alldonations, Total, Donationpolls, Schedule, Targets, Rewards, Milestones, Donors, Campaign } from '../types/schemas';
+import type { Donation, Donations, Configschema, Alldonations, Total, Polls, Schedule, Targets, Rewards, Milestones, Donors, Campaign } from '../types/schemas';
 import { createHmac } from "node:crypto";
 import TiltifyClient from "@ericthelemur/tiltify-api-client";
 import { NextFunction } from 'express';
@@ -104,7 +104,7 @@ async function askTiltifyForAllDonations() {
 async function askTiltifyForPolls() {
     client.Campaigns.getPolls(
         nodecg.bundleConfig.tiltify_campaign_id,
-        function (polls: Donationpolls) {
+        function (polls: Polls) {
             if (JSON.stringify(rep.polls.value) !== JSON.stringify(polls)) {
                 rep.polls.value = polls;
             }

@@ -1,5 +1,5 @@
 import type NodeCG from '@nodecg/types';
-import type { Donation, Donations, Configschema, Alldonations, Total, Donationpolls, Schedule, Targets, Rewards, Milestones, Donors, Campaign } from '../types/schemas';
+import type { Donation, Donations, Configschema, Alldonations, Total, Polls, Schedule, Targets, Rewards, Milestones, Donors, Campaign } from '../types/schemas';
 import { EventEmitter } from 'node:events';
 import { storeNodeCG, isEmpty } from './utils';
 
