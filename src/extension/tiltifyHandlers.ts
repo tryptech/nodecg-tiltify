@@ -33,9 +33,8 @@ function pushUniqueDonation(donation: Donation) {
 
 function updateTotal(campaign: Campaign) {
     // Less than check in case webhooks are sent out-of-order. Only update the total if it's higher!
-    if (rep.campaignTotal.value < Number(campaign.amount_raised.value)
-    ) {
-        rep.campaignTotal.value = Number(campaign.amount_raised.value);
+    if (Number(rep.campaignTotal.value.value) < Number(campaign.amount_raised.value) || rep.campaignTotal.value.currency != campaign.amount_raised.currency) {
+        rep.campaignTotal.value = campaign.amount_raised;
     }
 }
 

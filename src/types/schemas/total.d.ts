@@ -8,4 +8,8 @@
 /**
  * The total for the campaign
  */
-export type Total = number;
+export interface Total {
+	currency: string;
+	value: string | number;
+	[k: string]: unknown;
+}

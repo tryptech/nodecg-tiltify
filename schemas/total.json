@@ -1,6 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "number",
+  "$ref": "common/amount.json",
   "description": "The total for the campaign",
-  "default": 0
+  "default": {
+    "value": 0,
+    "currency": "GBP"
+  }
 }
