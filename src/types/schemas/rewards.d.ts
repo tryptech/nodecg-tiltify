@@ -13,7 +13,6 @@ export interface Reward {
 	 */
 	active: boolean;
 	amount: Amount;
-	amount_raised?: Amount;
 	description: string;
 	ends_at: string | null;
 	fair_market_value?: number | null;

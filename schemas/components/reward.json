@@ -9,9 +9,6 @@
         "amount": {
             "$ref": "../common/amount.json"
         },
-        "amount_raised": {
-            "$ref": "../common/amount.json"
-        },
         "description": {
             "type": "string"
         },
