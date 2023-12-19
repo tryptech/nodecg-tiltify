@@ -1,17 +1,14 @@
 # nodecg-tiltify
 
-nodecg-tiltify is a [NodeCG](http://github.com/nodecg/nodecg) bundle.
-It works with NodeCG versions which satisfy this [semver](https://docs.npmjs.com/getting-started/semantic-versioning) range: `^2.0.0`
-You will need to have an appropriate version of NodeCG installed to use it.
+> TODO: Improve stub readme
 
+Rewrite of [daniellockard/nodecg-tiltify](https://github.com/daniellockard/nodecg-tiltify) using TypeScript, providing types for Tiltify's APIs.
 
-## Developing
+This follows the original replicant schemas, with only three changes:
+- `total` is now an amount value, providing an object of currency and value instead of a single value number
+- `mark-dono-as-read/shown` has been replaced with more flexible `set-donation-read/shown` where you pass a Boolean as well.
+- A `donors` replicant is also provided following Tiltify's API for this.
 
-Use the following commands:
+# Installation
 
--   `npm run build`: Build the project once.
--   `npm run watch`: Build the project and automatically rebuild on changes.
--   `npm run dev`: Build the project, automatically rebuild on changes, launch the NodeCG server, and automatically restart the NodeCG server on changes.
-    -   Only restarts the NodeCG server when server-side (i.e. extension) code changes. Changes to client-side code (i.e. dashboard panels and graphics) will not cause the server to restart, nor will they cause browser tabs to automatically refresh.
-
-
+Follow [setup from the original repo](https://github.com/daniellockard/nodecg-tiltify#setup)
