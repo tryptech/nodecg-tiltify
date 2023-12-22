@@ -64,6 +64,10 @@ jobs:
     - name: Update NPM installation
       run: npm install -g npm@latest
 
+    # Install nodecg
+    - name: Install nodecg
+      run: npm install -g nodecg
+
     # Install NPM dependencies
     - name: Install NPM dependencies
       run: npm ci
