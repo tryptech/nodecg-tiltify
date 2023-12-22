@@ -34,7 +34,7 @@
   "scripts": {
     "build": "node scripts/build.mjs --all",
     "build:extension": "node scripts/build.mjs --extension",
-    "build:schema": "trash src/types/schemas && nodecg schema-types",
+    "build:schema": "trash src/types/schemas && npx nodecg schema-types",
     "watch": "node scripts/build.mjs --all --watch",
     "watch:browser": "node scripts/build.mjs --dashboard --graphics --watch",
     "watch:schemas": "node scripts/build.mjs --schemas --watch",
