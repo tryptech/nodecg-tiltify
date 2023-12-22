@@ -43,21 +43,22 @@
     "clean": "trash .parcel-cache dashboard extension graphics"
   },
   "dependencies": {
-    "ts-node": "*",
-    "@ericthelemur/tiltify-api-client": "^2.1.0"
+    "@ericthelemur/tiltify-api-client": "^2.1.0",
+    "ts-node": "*"
   },
   "devDependencies": {
-    "typescript": "^5.1.3",
-    "@types/node": "^18",
     "@nodecg/types": "^2.0.0",
-    "@parcel/core": "*",
     "@parcel/config-default": "*",
+    "@parcel/core": "*",
     "@parcel/reporter-cli": "*",
     "@parcel/validator-typescript": "*",
+    "@types/node": "^18",
+    "concurrently": "*",
     "glob": "^10.2.7",
-    "trash-cli": "*",
+    "nodecg-cli": "^8.6.8",
     "nodemon": "*",
-    "concurrently": "*"
+    "trash-cli": "*",
+    "typescript": "^5.1.3"
   },
   "license": "MIT"
 }
