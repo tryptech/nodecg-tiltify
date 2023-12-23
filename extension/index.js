@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"adkVt":[function(require,module,exports) {
+})({"eGA2g":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "WEBHOOK_MODE", ()=>WEBHOOK_MODE);
@@ -169,14 +169,14 @@ module.exports = function(nodecg) {
     // Store nodecg for retrieval elsewhere
     (0, _utils.storeNodeCG)(nodecg);
     // Then load replicants
-    require("8926ae5ca7bbad73");
+    require("15fdd44a8f855e3c");
     // Then load everything else
-    require("5364b5c064307c0c");
-    require("64b76057c0e71161");
-    require("b3f6191d348ffffc");
+    require("46530f9395d93196");
+    require("ca2eb03e7996e1ed");
+    require("f618f68817b826df");
 };
 
-},{"./utils":"lWrRP","8926ae5ca7bbad73":"b5GEq","5364b5c064307c0c":"fs7Xx","64b76057c0e71161":"6cgjI","b3f6191d348ffffc":"fkvZo","@parcel/transformer-js/src/esmodule-helpers.js":"9VN6q"}],"lWrRP":[function(require,module,exports) {
+},{"./utils":"lWrRP","15fdd44a8f855e3c":"b5GEq","46530f9395d93196":"fs7Xx","ca2eb03e7996e1ed":"6cgjI","f618f68817b826df":"fkvZo","@parcel/transformer-js/src/esmodule-helpers.js":"9VN6q"}],"lWrRP":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "storeNodeCG", ()=>storeNodeCG);
@@ -251,14 +251,14 @@ const donors = nodecg.Replicant("donors");
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "tiltifyEmitter", ()=>tiltifyEmitter);
-var _nodeCrypto = require("crypto");
 var _tiltifyApiClient = require("@ericthelemur/tiltify-api-client");
 var _tiltifyApiClientDefault = parcelHelpers.interopDefault(_tiltifyApiClient);
-var _replicants = require("./utils/replicants");
-var _utils = require("./utils");
-var _ = require(".");
+var _nodeCrypto = require("crypto");
 var _nodeStream = require("stream");
+var _indexExtension = require("./index.extension");
+var _utils = require("./utils");
 var _currency = require("./utils/currency");
+var _replicants = require("./utils/replicants");
 const nodecg = (0, _utils.getNodeCG)();
 const tiltifyEmitter = new (0, _nodeStream.EventEmitter)();
 var client = new (0, _tiltifyApiClientDefault.default)(nodecg.bundleConfig.tiltify_client_id, nodecg.bundleConfig.tiltify_client_secret);
@@ -353,7 +353,7 @@ async function askTiltifyForTotal() {
 }
 function askTiltify() {
     // Donations and total are handled by websocket normally, only ask if not using websockets
-    if (!(0, _.WEBHOOK_MODE)) {
+    if (!(0, _indexExtension.WEBHOOK_MODE)) {
         askTiltifyForDonations();
         askTiltifyForTotal();
     }
@@ -365,7 +365,7 @@ function askTiltify() {
     askTiltifyForDonors();
 }
 client.initialize().then(()=>{
-    if (0, _.WEBHOOK_MODE) {
+    if (0, _indexExtension.WEBHOOK_MODE) {
         client.Webhook.activate(nodecg.bundleConfig.tiltify_webhook_id, ()=>{
             nodecg.log.info("Webhooks staged!");
         });
@@ -384,14 +384,14 @@ client.initialize().then(()=>{
     askTiltifyForAllDonations();
     setInterval(function() {
         askTiltify();
-    }, (0, _.WEBHOOK_MODE) ? 10000 : 5000);
+    }, (0, _indexExtension.WEBHOOK_MODE) ? 10000 : 5000);
     setInterval(function() {
         askTiltifyForAllDonations();
     }, 300000);
 });
 nodecg.mount(app);
 
-},{"node:crypto":"node:crypto","@ericthelemur/tiltify-api-client":"@ericthelemur/tiltify-api-client","./utils/replicants":"b5GEq","./utils":"lWrRP",".":"adkVt","node:stream":"node:stream","./utils/currency":"fkvZo","@parcel/transformer-js/src/esmodule-helpers.js":"9VN6q"}],"fkvZo":[function(require,module,exports) {
+},{"@ericthelemur/tiltify-api-client":"@ericthelemur/tiltify-api-client","node:crypto":"node:crypto","node:stream":"node:stream","./index.extension":"eGA2g","./utils":"lWrRP","./utils/currency":"fkvZo","./utils/replicants":"b5GEq","@parcel/transformer-js/src/esmodule-helpers.js":"9VN6q"}],"fkvZo":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "conversionRates", ()=>conversionRates);
@@ -493,6 +493,6 @@ function tripleState(v, appVal, undecVal, cenVal) {
     return v === APPROVED ? appVal : v === CENSORED ? cenVal : undecVal;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9VN6q"}]},["adkVt"], "adkVt", "parcelRequirebf45")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"9VN6q"}]},["eGA2g"], "eGA2g", "parcelRequirebf45")
 
 //# sourceMappingURL=index.js.map
