@@ -1,4 +1,6 @@
 {
-	"extends": "../../tsconfig.build.json",
-	"include": ["**/*.ts", "../types/schemas/index.d.ts"]
+	"extends": "../../../wasd-common/shared/tsconfig.build.json",
+	"include": [
+		"**/*.ts"
+	]
 }
