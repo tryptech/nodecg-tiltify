@@ -10,10 +10,10 @@
   },
   "scripts": {
     "start": "cd ../.. && node -r source-map-support/register index.js",
-    "build": "node ../wasd-common/shared/scripts/build.mjs",
-    "watch": "node ../wasd-common/shared/scripts/build.mjs --watch",
-    "clean": "node ../wasd-common/shared/scripts/build.mjs --clean-only",
-    "types": "nodecg schema-types",
+    "build": "cross-env-shell node ../wasd-common/shared/scripts/build.mjs $npm_package_name",
+    "watch": "npm run build -- --watch",
+    "clean": "npm run build -- --clean-only",
+    "types": "nodecg schema-types --o ../wasd-common/shared/types/$npm_package_name",
     "nodemon": "nodemon --config ../wasd-common/shared/nodemon.json",
     "dev": "concurrently --kill-others \"npm run watch -- --types\" \"npm run watch -- --browser\" \"npm run nodemon\""
   },
@@ -26,7 +26,8 @@
     "@nodecg/types": "^2.0.0",
     "@types/node": "^18",
     "trash-cli": "^5.0.0",
-    "typescript": "^5.1.3"
+    "typescript": "^5.1.3",
+    "cross-env": "*"
   },
   "files": [
     "extension",
