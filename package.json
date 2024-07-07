@@ -20,7 +20,7 @@
   "dependencies": {
     "@ericthelemur/tiltify-api-client": "github:ericthelemur/tiltify-api-client",
     "ts-node": "*",
-    "wasd-common": "1.0.0"
+    "wasd-common": "file://../wasd-common"
   },
   "devDependencies": {
     "@nodecg/types": "^2.0.0",
