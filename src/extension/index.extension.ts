@@ -9,7 +9,7 @@ module.exports = function (nodecg: NodeCG.ServerAPI<Configschema>) {
 	if (isEmpty(nodecg.bundleConfig.tiltify_webhook_secret) || isEmpty(nodecg.bundleConfig.tiltify_webhook_id)) {
 		WEBHOOK_MODE = false
 		nodecg.log.info("Running without webhooks!! Please set webhook secret, and webhook id in cfg/nodecg-tiltify.json [See README]");
-		return;
+		//return;
 	}
 
 	if (isEmpty(nodecg.bundleConfig.tiltify_client_id)) {
