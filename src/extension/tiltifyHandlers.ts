@@ -5,7 +5,7 @@ import { createHmac } from "node:crypto";
 import { EventEmitter } from 'node:stream';
 
 import type { Alldonations, Campaign, Donation, Donations, Donors, Milestones, Polls, Rewards, Schedule, Targets } from '../types/schemas';
-import { WEBHOOK_MODE } from './index.extension';
+import { WEBHOOK_MODE } from './index';
 import { getNodeCG } from './utils';
 import { convertValue } from './utils/currency';
 import * as rep from "./utils/replicants";

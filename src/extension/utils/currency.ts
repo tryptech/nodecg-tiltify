@@ -23,11 +23,13 @@ export var conversionRates: ConversionRates = {
 
 if (nodecg.bundleConfig.freecurrencyapi_key) {
     fetch(`https://api.freecurrencyapi.com/v1/latest?apikey=${nodecg.bundleConfig.freecurrencyapi_key}&base_currency=${nodecg.bundleConfig.display_currency}`)
-        .then((r) => r.json())
+        .then((r) => r.json() as Promise<{ data?: ConversionRates }>)
         .then((j) => {
-            conversionRates = j.data;
-            nodecg.log.info("Conversion rates loaded, refreshing all conversions");
-            convertAll();
+            if (j.data) {
+                conversionRates = j.data;
+                nodecg.log.info("Conversion rates loaded, refreshing all conversions");
+                convertAll();
+            }
         });
 } else convertAll();
 
