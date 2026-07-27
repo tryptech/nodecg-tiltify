@@ -4,7 +4,7 @@ import { Request, Response } from "express-serve-static-core";
 import { createHmac } from "node:crypto";
 import { EventEmitter } from 'node:stream';
 
-import type { Alldonations, Campaign, Donation, Donations, Donors, Milestones, Polls, Rewards, Schedule, Targets } from '../types/schemas';
+import type { Alldonations, Basedono, Campaign, Donation, Donations, Donors, Milestones, Polls, Rewards, Schedule, Targets } from '../types/schemas';
 import { WEBHOOK_MODE } from './index';
 import { getNodeCG } from './utils';
 import { convertValue } from './utils/currency';
@@ -17,6 +17,30 @@ export const tiltifyEmitter = new EventEmitter();
 var client = new TiltifyClient(nodecg.bundleConfig.tiltify_client_id, nodecg.bundleConfig.tiltify_client_secret);
 const app = nodecg.Router();
 
+function toBasedono(donation: Donation): Basedono {
+    return {
+        // Clone amount so it is not shared with the donations replicant proxy.
+        amount: {
+            value: donation.amount.value,
+            currency: donation.amount.currency,
+        },
+        id: donation.id,
+        campaign_id: donation.campaign_id,
+        completed_at: donation.completed_at,
+        created_at: donation.created_at,
+        donor_comment: donation.donor_comment,
+        donor_name: donation.donor_name,
+        fundraising_event_id: donation.fundraising_event_id,
+        legacy_id: donation.legacy_id,
+        poll_id: donation.poll_id,
+        poll_option_id: donation.poll_option_id,
+        reward_id: donation.reward_id,
+        sustained: donation.sustained,
+        target_id: donation.target_id,
+        team_event_id: donation.team_event_id,
+    };
+}
+
 function pushUniqueDonation(donation: Donation) {
     var found = rep.donations.value.find(function (element: Donation) {
         return element.id === donation.id;
@@ -28,6 +52,16 @@ function pushUniqueDonation(donation: Donation) {
         convertValue(donation);
         tiltifyEmitter.emit("new-donation", donation);
         rep.donations.value.push(donation);
+
+        const alreadyInHistory = rep.allDonations.value.some(
+            (element: Basedono) => element.id === donation.id
+        );
+        if (!alreadyInHistory) {
+            rep.allDonations.value = [
+                ...rep.allDonations.value,
+                toBasedono(donation),
+            ];
+        }
     }
 }
 
