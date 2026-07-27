@@ -7,6 +7,9 @@ const nodecg = getNodeCG();
 export const donations = nodecg.Replicant("donations") as unknown as NodeCG.ServerReplicantWithSchemaDefault<Donations>;
 export const allDonations = nodecg.Replicant("alldonations") as unknown as NodeCG.ServerReplicantWithSchemaDefault<Alldonations>;
 export const campaignTotal = nodecg.Replicant("total") as unknown as NodeCG.ServerReplicantWithSchemaDefault<Total>;
+export const trackedCampaignId = nodecg.Replicant("trackedCampaignId", {
+	defaultValue: "",
+}) as unknown as NodeCG.ServerReplicantWithSchemaDefault<string>;
 export const polls = nodecg.Replicant("polls") as unknown as NodeCG.ServerReplicantWithSchemaDefault<Polls>;
 export const schedule = nodecg.Replicant("schedule") as unknown as NodeCG.ServerReplicantWithSchemaDefault<Schedule>;
 export const targets = nodecg.Replicant("targets") as unknown as NodeCG.ServerReplicantWithSchemaDefault<Targets>;

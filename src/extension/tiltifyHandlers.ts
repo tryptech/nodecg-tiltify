@@ -32,9 +32,18 @@ function pushUniqueDonation(donation: Donation) {
 }
 
 function updateTotal(campaign: Campaign) {
+    const campaignChanged = rep.trackedCampaignId.value !== campaign.id;
     // Less than check in case webhooks are sent out-of-order. Only update the total if it's higher!
-    if (Number(rep.campaignTotal.value.value) < Number(campaign.amount_raised.value) || rep.campaignTotal.value.currency != campaign.amount_raised.currency) {
+    // Always sync when the campaign id changes so a prior campaign's total isn't kept.
+    if (
+        campaignChanged ||
+        Number(rep.campaignTotal.value.value) < Number(campaign.amount_raised.value) ||
+        rep.campaignTotal.value.currency != campaign.amount_raised.currency
+    ) {
         rep.campaignTotal.value = campaign.amount_raised;
+    }
+    if (campaignChanged) {
+        rep.trackedCampaignId.value = campaign.id;
     }
 }
 
