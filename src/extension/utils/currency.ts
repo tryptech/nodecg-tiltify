@@ -30,6 +30,11 @@ if (nodecg.bundleConfig.freecurrencyapi_key) {
                 nodecg.log.info("Conversion rates loaded, refreshing all conversions");
                 convertAll();
             }
+        })
+        .catch((error) => {
+            nodecg.log.warn("Failed to load conversion rates; using defaults.");
+            nodecg.log.warn(error);
+            convertAll();
         });
 } else convertAll();
 

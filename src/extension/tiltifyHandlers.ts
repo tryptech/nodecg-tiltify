@@ -95,25 +95,25 @@ function validateSignature(req: Request, res: Response, next: NextFunction) {
     if (signatureIn === signature) {
         next()
     } else {
+        nodecg.log.warn('Tiltify webhook rejected: invalid signature');
         // Close connection (200 code MUST be sent regardless)
         res.sendStatus(200)
     };
 }
 
 app.post('/nodecg-tiltify/webhook', validateSignature, (req: Request, res: Response) => {
+    const eventType = req.body?.meta?.event_type;
     // Verify this webhook is sending out stuff for the campaign we're working on
-    if (
-        req.body?.meta.event_type === "public:direct:donation_updated" // &&
-        // req.body.data.campaign_id === nodecg.bundleConfig.tiltify_campaign_id
-    ) {
+    if (eventType === "public:direct:donation_updated") {
         // New donation
         pushUniqueDonation(req.body.data)
-    } else if (
-        req.body.meta.event_type === "public:direct:fact_updated" // &&
-        // req.body.data.id === nodecg.bundleConfig.tiltify_campaign_id
-    ) {
+        nodecg.log.info(`Tiltify webhook: donation_updated (${req.body.data?.id ?? 'unknown id'})`);
+    } else if (eventType === "public:direct:fact_updated") {
         // Updated amount raised
         updateTotal(req.body.data)
+        nodecg.log.info(`Tiltify webhook: fact_updated (raised ${req.body.data?.amount_raised?.value ?? '?'} ${req.body.data?.amount_raised?.currency ?? ''})`.trim());
+    } else {
+        nodecg.log.debug(`Tiltify webhook: ignored event type ${eventType ?? 'unknown'}`);
     }
     // Send ack
     res.sendStatus(200)
@@ -255,6 +255,9 @@ client.initialize().then(() => {
     setInterval(function () {
         askTiltifyForAllDonations();
     }, 5 * 60000);
+}).catch((error) => {
+    nodecg.log.error('Failed to initialize Tiltify client.');
+    nodecg.log.error(error);
 })
 
 nodecg.mount(app);
